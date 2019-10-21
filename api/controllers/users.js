@@ -40,34 +40,105 @@ exports.get_one = (req, res, next) => {
 };
 
 exports.signup = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10, (err, hash) => {
-    if (err) {
-      return res.status(500).json({
-        error: err
-      });
-    } else {
-      const newUser = new User({
-        _id: new mongoose.Types.ObjectId(),
-        username: req.body.username,
-        email: req.body.email,
-        password: hash
-      });
+  const login = req.body.login;
+  const password = req.body.password;
 
-      newUser
-        .save()
-        .then((user) => {
-          res.status(201).json({
-            message: 'User created!',
-            userCreated: user
+  // Check if username already exists
+  User.find({ username: login })
+    .exec()
+    .then((user) => {
+      if (user.length >= 1) {
+        return res.status(409).json({
+          message: 'Username already exists!'
+        });
+      } else {
+        // Check if email already exists
+        User.find({ email: login })
+          .exec()
+          .then((user) => {
+            if (user.length >= 1) {
+              return res.status(409).json({
+                message: 'Email already exists!'
+              });
+            } else {
+              // Hash the password and add the user to the database
+              bcrypt.hash(password, 10, (err, hash) => {
+                if (err) {
+                  return res.status(500).json({
+                    error: err
+                  });
+                } else {
+                  const newUser = new User({
+                    _id: new mongoose.Types.ObjectId(),
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: hash
+                  });
+
+                  newUser
+                    .save()
+                    .then((user) => {
+                      res.status(201).json({
+                        message: 'User created!',
+                        userCreated: user
+                      });
+                    })
+                    .catch((err) => {
+                      res.status(500).json({
+                        error: err
+                      });
+                    });
+                }
+              });
+            }
           });
-        })
-        .catch((err) => {
-          res.status(500).json({
-            error: err
+      }
+    });
+};
+
+exports.login = (req, res, next) => {
+  const login = req.body.login;
+  const password = req.body.password;
+
+  // Check if the username exist
+  User.find({ username: login })
+    .exec()
+    .then((user) => {
+      if (user.length < 1) {
+        // Check if the email exist
+        User.find({ email: login })
+          .exec()
+          .then((user) => {
+            if (user.length < 1) {
+              return res.status(401).json({
+                message: 'Auth failed'
+              });
+            }
+          })
+          .catch((err) => {
+            res.status(500).json({
+              error: err
+            });
+          });
+      } else {
+        bcrypt.compare(password, user[0].password, (err, result) => {
+          if (err) {
+            return res.status(401).json({
+              message: 'Auth failed',
+              error: err
+            });
+          }
+          if (result) {
+            return res.status(200).json({
+              message: 'Auth successful'
+            });
+          }
+          return res.status(401).json({
+            message: 'Auth failed'
           });
         });
-    }
-  });
+      }
+    });
 };
 
 exports.patch = (req, res, next) => {

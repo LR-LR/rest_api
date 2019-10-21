@@ -11,6 +11,8 @@ router.get('/:id', UsersCtrl.get_one);
 
 router.post('/signup', UsersCtrl.signup);
 
+router.post('/login', UsersCtrl.login);
+
 router.patch('/:id', UsersCtrl.patch);
 
 router.delete('/:id', UsersCtrl.delete);
