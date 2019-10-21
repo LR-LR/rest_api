@@ -1,8 +1,9 @@
-# REST-API
+# REST API by LR
 
 This is a basic fake social network API with some users, working with a MongoDB database.
 
 ## Installation
+
 1. To use this API, you have to clone this repository and install dependencies with the following command:
 ```
 npm install
@@ -17,11 +18,11 @@ PORT=[The port you want to listen your server]
 3. This server is set to turn with **Nodemon**. If you don't want to use it, go to the `package.json` file and change the following line:
 ```json
 {
-  // ...
+  /* ... */
   "scripts": {
     "start": " [The command you want to run your server] ",
   },
-  // ...
+  /* ... */
 }
 ```
 
