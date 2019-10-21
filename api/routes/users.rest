@@ -1,0 +1,64 @@
+########## USERS ##########
+
+### GET all users
+GET http://localhost:3000/users
+
+
+
+
+
+### GET a user by his id
+GET http://localhost:3000/users/5dac6b49f72a6f0c443cef79
+
+
+
+
+
+### POST a user
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "LR LR",
+  "email": "lrlr@gmail.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "Jah",
+  "email": "jah@gmail.com",
+  "password": "654321"
+}
+
+###
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "Bruh",
+  "email": "bruh123@gmail.com",
+  "password": "212121"
+}
+
+
+
+
+
+### PATCH a user
+PATCH http://localhost:3000/users/5dac6f0aa5916d3b74681326
+Content-Type: application/json
+
+{
+  "username": "Bruh"
+}
+
+
+
+
+
+### DELETE a user by his id
+DELETE http://localhost:3000/users/5dac6eb6582a1e2ed8ec22ca
