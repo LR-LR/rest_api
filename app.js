@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Routers
 const usersRoutes = require('./api/routes/users');
@@ -9,7 +10,7 @@ const postsRoutes = require('./api/routes/posts');
 const commentsRoutes = require('./api/routes/comments');
 
 // Connection to the database
-mongoose.connect('mongodb://localhost:27017/rest_db', {
+mongoose.connect(process.env.MONGO_DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
