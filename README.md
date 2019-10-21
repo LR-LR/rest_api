@@ -26,7 +26,10 @@ PORT=[The port you want to listen your server]
 ```
 
 ## Start the server
-1. Launch your MongoDB server (if it's in your machine), and run your server with the following command:
+Launch your MongoDB server (if it's in your machine), and run your server with the following command:
 ```
 npm start
 ```
+
+## Testing requests
+To test the request in your API, you can use Postman, or the `.rest` files in the [/api/routes](https://github.com/LR-LR/rest_api/tree/master/api/routes) folder. To use this files, you'll have to install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension in [VSCode](https://code.visualstudio.com/) (read [REST Client's documentation](https://github.com/Huachao/vscode-restclient#usage) to know more).
