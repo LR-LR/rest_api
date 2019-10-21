@@ -17,11 +17,11 @@ PORT=[The port you want to listen your server]
 3. This server is set to turn with **Nodemon**. If you don't want to use it, go to the `package.json` file and change the following line:
 ```json
 {
-  ...
+  // ...
   "scripts": {
     "start": " [The command you want to run your server] ",
   },
-  ...
+  // ...
 }
 ```
 
