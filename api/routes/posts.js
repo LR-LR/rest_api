@@ -35,14 +35,15 @@ const upload = multer({
 // Controller
 const PostCtrl = require('../controllers/posts');
 
-router.get('/', PostCtrl.get_all);
+router
+  .get('/', PostCtrl.get_all)
 
-router.get('/:id', PostCtrl.get_one);
+  .get('/:id', PostCtrl.get_one)
 
-router.post('/', checkAuth, upload.single('image'), PostCtrl.post);
+  .post('/', checkAuth, upload.single('image'), PostCtrl.post)
 
-router.patch('/:id', checkAuth, PostCtrl.patch);
+  .patch('/:id', checkAuth, PostCtrl.patch)
 
-router.delete('/:id', checkAuth, PostCtrl.delete);
+  .delete('/:id', checkAuth, PostCtrl.delete);
 
 module.exports = router;

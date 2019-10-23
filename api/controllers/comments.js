@@ -38,7 +38,7 @@ exports.get_one = (req, res, next) => {
     });
 };
 
-exports.get_one_by_post_id = (req, res, next) => {
+exports.get_all_by_post_id = (req, res, next) => {
   let post_id = req.params.post_id;
 
   Comment.find({ post_id: post_id })

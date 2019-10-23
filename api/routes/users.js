@@ -6,16 +6,17 @@ const checkAuth = require('../middlewares/check-auth');
 const UsersCtrl = require('../controllers/users');
 
 // Routes
-router.get('/', UsersCtrl.get_all);
+router
+  .get('/', UsersCtrl.get_all)
 
-router.get('/:id', UsersCtrl.get_one);
+  .get('/:id', UsersCtrl.get_one)
 
-router.post('/signup', UsersCtrl.signup);
+  .post('/signup', UsersCtrl.signup)
 
-router.post('/login', UsersCtrl.login);
+  .post('/login', UsersCtrl.login)
 
-router.patch('/:id', checkAuth, UsersCtrl.patch);
+  .patch('/:id', checkAuth, UsersCtrl.patch)
 
-router.delete('/:id', checkAuth, UsersCtrl.delete);
+  .delete('/:id', checkAuth, UsersCtrl.delete);
 
 module.exports = router;
