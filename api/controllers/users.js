@@ -87,7 +87,7 @@ exports.signup = (req, res, next) => {
                     })
                     .catch((err) => {
                       res.status(500).json({
-                        error: err
+                        err: err
                       });
                     });
                 }
@@ -119,7 +119,7 @@ exports.login = (req, res, next) => {
           })
           .catch((err) => {
             res.status(500).json({
-              error: err
+              err: err
             });
           });
       } else {
@@ -154,45 +154,67 @@ exports.login = (req, res, next) => {
 
 exports.patch = (req, res, next) => {
   const id = req.params.id;
+  const user_id = req.userData.user_id;
 
-  const updateOps = {};
-  for (let prop in req.body) {
-    updateOps[prop] = req.body[prop];
-  }
+  if (id === user_id) {
+    const updateOps = {};
+    for (let prop in req.body) {
+      updateOps[prop] = req.body[prop];
+    }
 
-  User.updateOne({ _id: id }, { $set: updateOps })
-    .exec()
-    .then((result) => {
-      res.status(200).json({
-        message: 'User updated!',
-        request: {
-          type: 'GET',
-          url: `http://localhost:3000/users/${id}`
-        }
+    User.updateOne({ _id: id }, { $set: updateOps })
+      .exec()
+      .then((result) => {
+        res.status(200).json({
+          message: 'User updated!',
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/users/${id}`
+          }
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          err: err
+        });
       });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: err
-      });
+  } else {
+    res.status(401).json({
+      message: "You're not authorized to update this user!"
     });
+  }
 };
 
 exports.delete = (req, res, next) => {
   const id = req.params.id;
+  const user_id = req.userData.user_id;
 
-  User.deleteOne({
-    _id: id
-  })
-    .exec()
-    .then((result) => {
-      res.status(200).json({
-        message: 'User deleted'
-      });
+  if (id === user_id) {
+    User.deleteOne({
+      _id: id
     })
-    .catch((err) => {
-      res.status(500).json({
-        error: err
+      .exec()
+      .then((result) => {
+        let message;
+
+        if (result.deletedCount < 1) {
+          message = 'No user for this ID!';
+        } else {
+          message = 'User deleted!';
+        }
+
+        res.status(200).json({
+          message: message
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          err: err
+        });
       });
+  } else {
+    res.status(401).json({
+      message: "You're not authorized to delete this user!"
     });
+  }
 };

@@ -21,7 +21,6 @@ exports.get_one = (req, res, next) => {
   const id = req.params.id;
 
   Post.findById(id)
-    .populate('user_id', 'username')
     .exec()
     .then((post) => {
       if (post) {
@@ -55,48 +54,68 @@ exports.post = (req, res, next) => {
     })
     .catch((err) => {
       res.status(500).json({
-        error: err
+        err: err
       });
     });
 };
 
 exports.patch = (req, res, next) => {
   const id = req.params.id;
+  const user_id = req.userData.user_id;
   const description = req.body.description;
 
-  Post.updateOne({ _id: id }, { $set: { description: description } })
+  Post.updateOne(
+    { _id: id, user_id: user_id },
+    { $set: { description: description } }
+  )
     .exec()
     .then((result) => {
-      res.status(200).json({
-        message: 'Post updated!',
-        request: {
-          type: 'GET',
-          url: `http://localhost:3000/posts/${id}`
-        }
-      });
+      if (result.nModified <= 1) {
+        res.status(401).json({
+          message: "You're not authorized to update this post!"
+        });
+      } else {
+        res.status(200).json({
+          message: 'Post updated!',
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/posts/${id}`
+          }
+        });
+      }
     })
     .catch((err) => {
       res.status(500).json({
-        error: err
+        err: err
       });
     });
 };
 
 exports.delete = (req, res, next) => {
   const id = req.params.id;
+  const user_id = req.userData.user_id;
 
   Post.deleteOne({
-    _id: id
+    _id: id,
+    user_id: user_id
   })
     .exec()
     .then((result) => {
+      let message;
+
+      if (result.deletedCount < 1) {
+        message = 'No post for this ID!';
+      } else {
+        message = 'Post deleted!';
+      }
+
       res.status(200).json({
-        message: 'Post deleted'
+        message: message
       });
     })
     .catch((err) => {
       res.status(500).json({
-        error: err
+        err: err
       });
     });
 };

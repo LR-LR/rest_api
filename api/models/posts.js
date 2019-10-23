@@ -17,7 +17,8 @@ const postSchema = mongoose.Schema(
     },
     description: {
       type: String
-    }
+    },
+    date: { type: Date, default: Date.now }
   },
   {
     versionKey: false

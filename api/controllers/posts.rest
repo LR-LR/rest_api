@@ -8,7 +8,7 @@ GET http://localhost:3000/posts
 
 
 ### GET a post by its id
-GET http://localhost:3000/posts/5dae31fd67efb930e05939bd
+GET http://localhost:3000/posts/5db0cc8025a5df4268488c30
 
 
 
@@ -17,7 +17,7 @@ GET http://localhost:3000/posts/5dae31fd67efb930e05939bd
 ### POST a post
 POST http://localhost:3000/posts
 Content-Type: multipart/form-data; boundary=b0UNd4rY
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRhZGIzYTA2ZWEzYjQxZTY4NmY3YTI1IiwiaWF0IjoxNTcxNjk2MzYzLCJleHAiOjE1NzE2OTk5NjN9.YdWDjK9TStwsUzVx6MmnlT0iY1-rYXzFwz7jfR2ubnQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRiMGM0MzBiNzRlYmIyMDYwYmI0NmY0IiwiaWF0IjoxNTcxODY1ODU2LCJleHAiOjE1NzE4Njk0NTZ9.BtwoXaiy55p-9F554SUO2_9w44n89oWMtGmiMO1lsA4
 
 --b0UNd4rY
 Content-Disposition: form-data; name="image"; filename="logo Centrale Marseille.png";
@@ -35,9 +35,9 @@ repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed est voluptate
 
 
 ### PATCH a post
-PATCH http://localhost:3000/posts/5dae31fd67efb930e05939bd
+PATCH http://localhost:3000/posts/5db0c51052915c3cd875d9a3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRhZGIzYTA2ZWEzYjQxZTY4NmY3YTI1IiwiaWF0IjoxNTcxNjk3NDA4LCJleHAiOjE1NzE3MDEwMDh9.hhFF1cYquUxU25-Yb-wPmokKrTB2_vtDakOCMPEoCOU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRiMGM0MzBiNzRlYmIyMDYwYmI0NmY0IiwiaWF0IjoxNTcxODY1ODU2LCJleHAiOjE1NzE4Njk0NTZ9.BtwoXaiy55p-9F554SUO2_9w44n89oWMtGmiMO1lsA4
 
 {
   "description": "Et sunt sunt amicum quasi benevolentiae sunt modo quisque diligendi."
@@ -48,3 +48,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRhZ
 
 ### DELETE a post by his id
 DELETE http://localhost:3000/posts/5dad99c7c849c72fcc566028
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRiMGM0MzBiNzRlYmIyMDYwYmI0NmY0IiwiaWF0IjoxNTcxODY1ODU2LCJleHAiOjE1NzE4Njk0NTZ9.BtwoXaiy55p-9F554SUO2_9w44n89oWMtGmiMO1lsA4

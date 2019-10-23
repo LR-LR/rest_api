@@ -1,0 +1,59 @@
+########## USERS ##########
+
+### GET all users
+GET http://localhost:3000/users
+
+
+
+
+
+### GET a user by his id
+GET http://localhost:3000/users/5db0ae330ce319356cf25234
+
+
+
+
+
+### Signup a new user
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "Django",
+  "email": "django@gmail.com",
+  "password": "123456"
+}
+
+
+
+
+
+### Log a user
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "login":"Django",
+  "password":"123456"
+}
+
+
+
+
+
+### PATCH a user
+PATCH http://localhost:3000/users/5dac6b49f72a6f0c443cef79
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRiMGIxODA0NTA2ZDYzNTljMzdlMDljIiwiaWF0IjoxNTcxODYyOTE3LCJleHAiOjE1NzE4NjY1MTd9.vUkWOmQJk9MQbzyHX7ScC8MqAlZ8PLVok68AbyEmznA
+
+{
+  "username": "LR LR"
+}
+
+
+
+
+
+### DELETE a user by his id
+DELETE http://localhost:3000/users/5db0ae330ce319356cf25234
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRiMGFlMzMwY2UzMTkzNTZjZjI1MjM0IiwiaWF0IjoxNTcxODYwMTQ1LCJleHAiOjE1NzE4NjM3NDV9.a0OsDC1pxGwS2Ow_OnLh-6BxP_mqSs84V05EdfhbXAM
