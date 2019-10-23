@@ -8,7 +8,7 @@ GET http://localhost:3000/posts
 
 
 ### GET a post by its id
-GET http://localhost:3000/posts/5dad94aff310b41258e72ed9
+GET http://localhost:3000/posts/5dae31fd67efb930e05939bd
 
 
 
@@ -17,11 +17,8 @@ GET http://localhost:3000/posts/5dad94aff310b41258e72ed9
 ### POST a post
 POST http://localhost:3000/posts
 Content-Type: multipart/form-data; boundary=b0UNd4rY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRhZGIzYTA2ZWEzYjQxZTY4NmY3YTI1IiwiaWF0IjoxNTcxNjk2MzYzLCJleHAiOjE1NzE2OTk5NjN9.YdWDjK9TStwsUzVx6MmnlT0iY1-rYXzFwz7jfR2ubnQ
 
---b0UNd4rY
-Content-Disposition: form-data; name="user_id"
-
-5dac6b49f72a6f0c443cef79
 --b0UNd4rY
 Content-Disposition: form-data; name="image"; filename="logo Centrale Marseille.png";
 Content-Type: image/png
@@ -33,47 +30,14 @@ Content-Disposition: form-data; name="description"
 repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed est voluptatem omnis possimus esse voluptatibus quis est aut tenetur dolor neque
 --b0UNd4rY--
 
-###
-POST http://localhost:3000/posts
-Content-Type: multipart/form-data; boundary=b0UNd4rY
-
---b0UNd4rY
-Content-Disposition: form-data; name="user_id"
-
-5dac6b4af72a6f0c443cef7a
---b0UNd4rY
-Content-Disposition: form-data; name="image"; filename="logo Passerelle Numérique.png";
-Content-Type: image/png
-
-< x:\Images\logo Passerelle Numérique.png
---b0UNd4rY--
-
-###
-POST http://localhost:3000/posts
-Content-Type: multipart/form-data; boundary=b0UNd4rY
-
---b0UNd4rY
-Content-Disposition: form-data; name="user_id"
-
-5dac6f0aa5916d3b74681326
---b0UNd4rY
-Content-Disposition: form-data; name="image"; filename="hacker.jpg";
-Content-Type: image/jpg
-
-< x:\Images\hacker.jpg
---b0UNd4rY
-Content-Disposition: form-data; name="description"
-
-quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto
---b0UNd4rY--
-
 
 
 
 
 ### PATCH a post
-PATCH http://localhost:3000/posts/5dad9a10f23c5913c0694a72
+PATCH http://localhost:3000/posts/5dae31fd67efb930e05939bd
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWRhZGIzYTA2ZWEzYjQxZTY4NmY3YTI1IiwiaWF0IjoxNTcxNjk3NDA4LCJleHAiOjE1NzE3MDEwMDh9.hhFF1cYquUxU25-Yb-wPmokKrTB2_vtDakOCMPEoCOU
 
 {
   "description": "Et sunt sunt amicum quasi benevolentiae sunt modo quisque diligendi."

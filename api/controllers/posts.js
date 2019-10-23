@@ -40,7 +40,7 @@ exports.get_one = (req, res, next) => {
 exports.post = (req, res, next) => {
   const newPost = new Post({
     _id: new mongoose.Types.ObjectId(),
-    user_id: req.body.user_id,
+    user_id: req.userData.user_id,
     image: req.file.path,
     description: req.body.description
   });

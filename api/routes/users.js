@@ -1,5 +1,6 @@
 // Imports
 const router = require('express').Router();
+const checkAuth = require('../middlewares/check-auth');
 
 // Controller
 const UsersCtrl = require('../controllers/users');
@@ -13,8 +14,8 @@ router.post('/signup', UsersCtrl.signup);
 
 router.post('/login', UsersCtrl.login);
 
-router.patch('/:id', UsersCtrl.patch);
+router.patch('/:id', checkAuth, UsersCtrl.patch);
 
-router.delete('/:id', UsersCtrl.delete);
+router.delete('/:id', checkAuth, UsersCtrl.delete);
 
 module.exports = router;

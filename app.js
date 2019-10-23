@@ -7,7 +7,6 @@ require('dotenv').config();
 // Routers
 const usersRoutes = require('./api/routes/users');
 const postsRoutes = require('./api/routes/posts');
-const commentsRoutes = require('./api/routes/comments');
 
 // Connection to the database
 mongoose.connect(process.env.MONGO_DATABASE_URL, {
@@ -43,7 +42,6 @@ app
   // Routes handling
   .use('/users', usersRoutes)
   .use('/posts', postsRoutes)
-  .use('/comments', commentsRoutes)
 
   // Errors handling
   .use((req, res, next) => {

@@ -8,13 +8,13 @@ GET http://localhost:3000/users
 
 
 ### GET a user by his id
-GET http://localhost:3000/users/5dac6b49f72a6f0c443cef79
+GET http://localhost:3000/users/5dadb3a06ea3b41e686f7a25
 
 
 
 
 
-### POST a user
+### Signup a new user
 POST http://localhost:3000/users/signup
 Content-Type: application/json
 
@@ -24,36 +24,16 @@ Content-Type: application/json
   "password": "123456"
 }
 
-###
-POST http://localhost:3000/users/signup
-Content-Type: application/json
-
-{
-  "username": "Jah",
-  "email": "jah@gmail.com",
-  "password": "654321"
-}
-
-###
-POST http://localhost:3000/users/signup
-Content-Type: application/json
-
-{
-  "username": "Bruh",
-  "email": "bruh123@gmail.com",
-  "password": "212121"
-}
 
 
 
 
-
-###
+### Log a user
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-  "login":"Bruh",
+  "login":"Madox",
   "password":"212121"
 }
 
@@ -62,11 +42,12 @@ Content-Type: application/json
 
 
 ### PATCH a user
-PATCH http://localhost:3000/users/5dac6f0aa5916d3b74681326
+PATCH http://localhost:3000/users/5dadb3a06ea3b41e686f7a25
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGFkYjNhMDZlYTNiNDFlNjg2ZjdhMjUiLCJ1c2VybmFtZSI6IkJydWgiLCJlbWFpbCI6ImJydWgxMjNAZ21haWwuY29tIiwiaWF0IjoxNTcxNjk1Njg2LCJleHAiOjE1NzE2OTkyODZ9.Q5QEM8de8NYHhNggUfeyv8L0BaafjvjvcFnIzXkSUro
 
 {
-  "username": "Bruh"
+  "username": "Madox"
 }
 
 
@@ -75,3 +56,4 @@ Content-Type: application/json
 
 ### DELETE a user by his id
 DELETE http://localhost:3000/users/5dadb2c2a4f24d2c08911486
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGFjNmI0YWY3MmE2ZjBjNDQzY2VmN2EiLCJ1c2VybmFtZSI6IkphaCIsImVtYWlsIjoiamFoQGdtYWlsLmNvbSIsImlhdCI6MTU3MTY5Mjk3NywiZXhwIjoxNTcxNjk2NTc3fQ.fUl_idaVh0HejWoAQU0sHWRCL2aOStdvuajuZ9bhvl

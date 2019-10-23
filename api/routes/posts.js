@@ -1,6 +1,7 @@
 // Imports
 const router = require('express').Router();
 const multer = require('multer');
+const checkAuth = require('../middlewares/check-auth');
 
 // Multer configuration
 const storage = multer.diskStorage({
@@ -38,10 +39,10 @@ router.get('/', PostCtrl.get_all);
 
 router.get('/:id', PostCtrl.get_one);
 
-router.post('/', upload.single('image'), PostCtrl.post);
+router.post('/', checkAuth, upload.single('image'), PostCtrl.post);
 
-router.patch('/:id', PostCtrl.patch);
+router.patch('/:id', checkAuth, PostCtrl.patch);
 
-router.delete('/:id', PostCtrl.delete);
+router.delete('/:id', checkAuth, PostCtrl.delete);
 
 module.exports = router;
