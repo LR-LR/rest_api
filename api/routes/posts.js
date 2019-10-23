@@ -40,6 +40,8 @@ router
 
   .get('/:id', PostCtrl.get_one)
 
+  .get('/user/:user_id', PostCtrl.get_all_by_user_id)
+
   .post('/', checkAuth, upload.single('image'), PostCtrl.post)
 
   .patch('/:id', checkAuth, PostCtrl.patch)

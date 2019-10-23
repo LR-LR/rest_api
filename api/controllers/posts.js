@@ -36,6 +36,21 @@ exports.get_one = (req, res, next) => {
     });
 };
 
+exports.get_all_by_user_id = (req, res, next) => {
+  let user_id = req.params.user_id;
+
+  Post.find({ user_id: user_id })
+    .exec()
+    .then((posts) => {
+      res.status(200).json(posts);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        err: err
+      });
+    });
+};
+
 exports.post = (req, res, next) => {
   const newPost = new Post({
     _id: new mongoose.Types.ObjectId(),

@@ -13,6 +13,12 @@ GET http://localhost:3000/posts/5db0cc8025a5df4268488c30
 
 
 
+### GET posts by a user id
+GET http://localhost:3000/posts/user/5db0c430b74ebb2060bb46f4
+
+
+
+
 
 ### POST a post
 POST http://localhost:3000/posts
