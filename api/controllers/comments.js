@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Model
 const Comment = require('../models/comment');
-const Posts = require('../models/posts');
+const Posts = require('../models/post');
 
 // Functions
 exports.get_all = (req, res, next) => {
