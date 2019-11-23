@@ -13,6 +13,7 @@ const commentsRoutes = require('./api/routes/comments');
 mongoose
   .connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-vdzi4.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
+    // `mongodb://localhost:27017/rest_api`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -20,6 +21,7 @@ mongoose
     }
   )
   .then(() => {
+    console.log('MONGODB Connected');
     app
       .use('/uploads', express.static('uploads'))
       // Parsing the body
